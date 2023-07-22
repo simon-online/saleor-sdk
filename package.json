@@ -1,13 +1,13 @@
 {
-  "version": "0.7.0",
+  "version": "0.7.1",
   "license": "MIT",
   "homepage": "https://saleor.io/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mirumee/saleor-sdk.git"
+    "url": "git://github.com/simon-online/saleor-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/mirumee/saleor-sdk/issues"
+    "url": "https://github.com/simon-online/saleor-sdk/issues"
   },
   "keywords": [
     "saleor",
@@ -57,7 +57,7 @@
   "np": {
     "yarn": false
   },
-  "name": "@saleor/sdk",
+  "name": "saleor-sdk",
   "author": "Saleor Commerce",
   "description": "Saleor TS SDK",
   "module": "dist/sdk.esm.js",

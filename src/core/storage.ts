@@ -38,10 +38,12 @@ export const createStorage = (autologinEnabled: boolean): void => {
   };
 
   const setRefreshToken = (token: string | null): void => {
-    if (token) {
-      localStorage.setItem(SALEOR_REFRESH_TOKEN, token);
-    } else {
-      localStorage.removeItem(SALEOR_REFRESH_TOKEN);
+    if (LOCAL_STORAGE_EXISTS) {
+      if (token) {
+        localStorage.setItem(SALEOR_REFRESH_TOKEN, token);
+      } else {
+        localStorage.removeItem(SALEOR_REFRESH_TOKEN);
+      }
     }
 
     refreshToken = token;
