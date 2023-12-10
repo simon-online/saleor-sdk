@@ -140,6 +140,12 @@ export interface AuthSDK {
    */
   verifyToken: () => Promise<VerifyTokenResult>;
   /**
+   * getAccessToken will return the requested access tokens.
+   *
+   * @returns Login authentication access token
+   */
+  getAccessToken: () => string;
+  /**
    * Executing externalAuthenticationUrl mutation will prepare special URL which will redirect user to requested
    * page after successfull authentication. After redirection state and code fields will be added to the URL.
    *
@@ -318,6 +324,16 @@ export const auth = ({
     }
 
     return result;
+  };
+
+  const getAccessToken: AuthSDK["getAccessToken"] = () => {
+    const token = storage.getAccessToken();
+
+    if (!token) {
+      throw Error("Token not present");
+    }
+
+    return token;
   };
 
   const changePassword: AuthSDK["changePassword"] = async opts => {
@@ -511,5 +527,6 @@ export const auth = ({
     setPassword,
     verifyExternalToken,
     verifyToken,
+    getAccessToken,
   };
 };
